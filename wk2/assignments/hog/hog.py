@@ -83,6 +83,12 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
     assert opponent_score < 100, 'The game should be over.'
     # BEGIN PROBLEM 3
     "*** YOUR CODE HERE ***"
+    if num_rolls == 0:
+        score = free_bacon(opponent_score)
+    else:
+        score = roll_dice(num_rolls, dice)
+
+    return score
     # END PROBLEM 3
 
 
