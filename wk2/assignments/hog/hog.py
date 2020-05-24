@@ -47,8 +47,26 @@ def free_bacon(score):
     assert score < 100, 'The game should be over.'
     # BEGIN PROBLEM 2
     "*** YOUR CODE HERE ***"
-    # END PROBLEM 2
+    def abs_alt_diff(num):
+        """ Returns the absolute alternating difference of the arguement's digits.
 
+        num: A positive integer.
+        """
+        assert num >= 0, 'The number should be postive.'
+
+        digits = list(map(int,str(num)))
+        diff = 0
+
+        for i in range(len(digits)):
+            if i % 2 == 0:
+                diff = diff + digits[i]
+            else:
+                diff = diff - digits[i]
+
+        return abs(diff)
+
+    return 1 + abs_alt_diff(score * score * score)
+    # END PROBLEM 2
 
 def take_turn(num_rolls, opponent_score, dice=six_sided):
     """Simulate a turn rolling NUM_ROLLS dice, which may be 0 (Free Bacon).
