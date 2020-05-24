@@ -38,6 +38,14 @@ def roll_dice(num_rolls, dice=six_sided):
     return sum
     # END PROBLEM 1
 
+def digitsOf(num):
+    """Return the digits of the positive integer.
+
+    num: A positive integer.
+    """
+    assert num >= 0, 'It should be positive.'
+
+    return list(map(int,str(num)))
 
 def free_bacon(score):
     """Return the points scored from rolling 0 dice (Free Bacon).
@@ -54,7 +62,7 @@ def free_bacon(score):
         """
         assert num >= 0, 'The number should be postive.'
 
-        digits = list(map(int,str(num)))
+        digits = digitsOf(num)
         diff = 0
 
         for i in range(len(digits)):
@@ -98,9 +106,16 @@ def is_swap(player_score, opponent_score):
     """
     # BEGIN PROBLEM 4
     "*** YOUR CODE HERE ***"
+    excitement = 3 ** (player_score + opponent_score)
+    digits = digitsOf(excitement)
+
+    if digits[0] == digits[(len(digits)-1)]:
+        return True
+    else:
+        return False
     # END PROBLEM 4
 
-
+print(is_swap(92,3))
 def other(who):
     """Return the other player, for a player WHO numbered 0 or 1.
 
